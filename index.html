@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>App Idea & Prompt Generator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Google+Sans+Text"
+    />
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai"
+        }
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="api-key-container">
+        <h2>Enter Your API Key</h2>
+        <p>To use this app, please provide your Google Gemini API key. It's only used in your browser for this session and is not stored.</p>
+        <div class="control-group">
+            <label for="api-key-input">Gemini API Key</label>
+            <input type="password" id="api-key-input" placeholder="Enter your API key">
+        </div>
+        <button id="save-key-btn">Continue</button>
+        <div id="api-key-error" class="hidden"></div>
+    </div>
+
+    <div id="app-container" class="hidden">
+      <header>
+        <h1>App Idea & Prompt Generator</h1>
+        <p>
+          Transform your raw idea into a detailed development prompt for your
+          next project.
+        </p>
+      </header>
+
+      <main>
+        <div id="input-section">
+          <div class="control-group">
+            <label for="app-idea-input">1. What is your core app idea?</label>
+            <textarea
+              id="app-idea-input"
+              rows="3"
+              placeholder="e.g., A mobile app that identifies plants from a photo."
+            ></textarea>
+          </div>
+
+          <div class="control-group">
+            <label for="key-features-input">2. List any key features you want.</label>
+            <input
+              type="text"
+              id="key-features-input"
+              placeholder="e.g., Offline mode, social sharing, user profiles"
+            />
+          </div>
+
+          <div class="control-group">
+            <label for="target-audience-input">3. Who is the target audience?</label>
+            <input
+              type="text"
+              id="target-audience-input"
+              placeholder="e.g., Gardeners, hikers, students"
+            />
+          </div>
+
+          <button id="generate-btn">
+            Generate Prompt
+            <div id="loader" class="hidden"></div>
+          </button>
+        </div>
+
+        <div id="output-section" class="hidden">
+          <h2>Generated Prompt</h2>
+          <div id="prompt-output"></div>
+          <button id="copy-btn">Copy Prompt</button>
+        </div>
+        
+        <div id="error-message" class="hidden"></div>
+      </main>
+    </div>
+    <script type="module" src="index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
